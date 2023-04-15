@@ -58,7 +58,7 @@ Example:
 
 ```
 module "media_bucket" {
-  source      = "app.terraform.io/bigfantech/s3-bucket/aws"
+  source      = "bigfantech-cloud/s3-bucket/aws"
   version     = "1.0.0"
 
   project_name  = "abc"
