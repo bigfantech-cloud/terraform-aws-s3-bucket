@@ -4,23 +4,8 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "acl" {
-  description = "Bucket ACL. Default = private"
-  type        = string
-  default     = "private"
-}
-variable "block_public_acls" {
-  description = "Whether Amazon S3 should block public ACLs for this bucket. Default = true"
-  default     = true
-}
-
 variable "block_public_policy" {
   description = "Whether Amazon S3 should block public bucket policies for this bucket. Default = true"
-  default     = true
-}
-
-variable "ignore_public_acls" {
-  description = "Whether Amazon S3 should ignore public ACLs for this bucket. Default = true"
   default     = true
 }
 
@@ -30,9 +15,9 @@ variable "restrict_public_buckets" {
 }
 
 variable "s3_object_ownership" {
-  description = "S3 object ownership control: ObjectWriter, BucketOwnerPreferred, and BucketOwnerEnforced. Default = ObjectWriter"
+  description = "S3 object ownership control: ObjectWriter, BucketOwnerPreferred, and BucketOwnerEnforced. Default = BucketOwnerEnforced"
   type        = string
-  default     = "ObjectWriter"
+  default     = "BucketOwnerEnforced"
 }
 
 variable "versioning_enabled" {
