@@ -20,23 +20,14 @@ versioning_enabled:
 force_destroy:
   Delete all objects from the bucket so that the bucket can be destroyed without error (true or false). Default = false.
 
-acl:
-  Bucket ACL. Default = private.
-
-block_public_acls:
-  Whether Amazon S3 should block public ACLs for this bucket. Default = true.
-
 block_public_policy:
   Whether Amazon S3 should block public bucket policies for this bucket. Default = true.
-
-ignore_public_acls:
-  Whether Amazon S3 should ignore public ACLs for this bucket. Default = true.
 
 restrict_public_buckets:
   Whether Amazon S3 should restrict public bucket policies for this bucket. Default = true.
 
 s3_object_ownership:
-  S3 object ownership control: ObjectWriter, BucketOwnerPreferred, and BucketOwnerEnforced. Default = ObjectWriter.
+  S3 object ownership control: ObjectWriter, BucketOwnerPreferred, and BucketOwnerEnforced. Default = BucketOwnerEnforced.
 
 bucket_key_enabled:
   Is bucket key enabled for Server Side Encryption. Default = false.
@@ -64,8 +55,6 @@ module "media_bucket" {
   project_name  = "abc"
   environment   = "dev"
   attributes    = ["media-files"]
-
-  s3_object_ownership = "BucketOwnerEnforced"
 }
 
 ```
