@@ -43,3 +43,9 @@ variable "kms_master_key_arn" {
   type        = string
   default     = ""
 }
+
+variable "bucket_policy_documents_list" {
+  description = "List of IAM policy documents"
+  type        = list(string)
+  default     = []
+}
