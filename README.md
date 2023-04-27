@@ -7,8 +7,8 @@ Create S3 bucket.
 #### REQUIRED:
 
 ```
-- project_name  (ex: project name).
-- environment   (ex: dev/prod) if applicable.
+- project_name
+- environment
 ```
 
 #### OPTIONAL:
@@ -33,7 +33,10 @@ bucket_key_enabled:
   Is bucket key enabled for Server Side Encryption. Default = false.
 
 kms_master_key_arn:
-  The AWS KMS master key ARN used for the `SSE-KMS` encryption.s
+  The AWS KMS master key ARN used for the `SSE-KMS` encryption.
+
+bucket_policy_documents_list
+  List of IAM policy documents
 ```
 
 ## Major resources created:
@@ -50,7 +53,7 @@ Example:
 ```
 module "media_bucket" {
   source      = "bigfantech-cloud/s3-bucket/aws"
-  version     = "1.0.0"
+  version     = "" # find the latest version from https://registry.terraform.io/modules/bigfantech-cloud/s3-bucket/aws/latest
 
   project_name  = "abc"
   environment   = "dev"
