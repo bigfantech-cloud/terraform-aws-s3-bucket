@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "default" {
     },
   )
 }
-    
+
 resource "aws_s3_bucket_versioning" "default" {
   count = var.versioning_enabled ? 1 : 0
 
@@ -49,16 +49,16 @@ resource "aws_s3_bucket_ownership_controls" "default" {
     object_ownership = var.s3_object_ownership
   }
 }
-    
+
 data "aws_iam_policy_document" "default" {
-  source_policy_documents   = var.bucket_policy_documents_list
+  source_policy_documents = var.bucket_policy_documents_list
 }
-    
+
 resource "aws_s3_bucket_policy" "default" {
-  count      = length(var.bucket_policy_documents_list) > 0) ? 1 : 0
-    
-  bucket     = aws_s3_bucket.default.id
-  policy     = join("", data.aws_iam_policy_document.aggregated_policy.*.json)
-  
+  count = length(var.bucket_policy_documents_list) > 0 ? 1 : 0
+
+  bucket = aws_s3_bucket.default.id
+  policy = join("", data.aws_iam_policy_document.default.*.json)
+
   depends_on = [aws_s3_bucket_public_access_block.default]
 }
